@@ -91,17 +91,17 @@ private:
         }
 
         if (cmd[0] == 1) {
-            /*ca->setParts(cmd);
+            ca->setParts(cmd);
             int result = ca->socketTest();
-            std::cout << result << std::endl;*/
+            std::cout << result << std::endl;
         }
         else if (cmd[0] == 2) {
             if (cmd[2] == 4) {
-                char result[] = "Engine is not working.\nThe car doesn't move.\n";
+                char result[] = "1";
                 send(clientSocket, result, sizeof(result), 0);
             }
             else {
-                char result[] = "The car is moving.\n";
+                char result[] = "2";
                 send(clientSocket, result, sizeof(result), 0);
             }
         }
@@ -112,7 +112,6 @@ private:
             int bytesReceived = recv(clientSocket, buffer, sizeof(buffer), 0);
             if (bytesReceived > 0) {
                 buffer[bytesReceived] = '\0';
-                cout << "Received: " << buffer << endl;
 
                 handleReceivedData(buffer);
 
