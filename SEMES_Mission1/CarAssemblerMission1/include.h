@@ -1,6 +1,7 @@
 #ifndef INCLUDE_H
 #define INCLUDE_H
 
+#include<iostream>
 #include <string>
 
 
@@ -19,6 +20,12 @@
 #include "Parts/Engine/exception/InvalidEngineTypeException.cpp"
 
 #include "Parts/Break/Break.cpp"
+//#include "Parts/Break/BreakFactory.cpp"
+#include "parts/Break/ContinetalBreak.cpp"
+#include "Parts/Break/MandoBreak.cpp"
+#include "Parts/Break/BoschBreak.cpp"
+#include "Parts/Break/exception/InvalidBreakTypeException.h"
+
 #include "Parts/Steering/Steering.cpp"
 
 // === Domain / Car ===

@@ -1,11 +1,14 @@
 #ifndef BREAK_INTERFACE_H
 #define BREAK_INTERFACE_H
 
+#include<string>
+
 class Break {
 private:
 
 public:
-	virtual void a() = 0;
+	virtual ~Break() {}
+	virtual std::string getBrandName() const = 0;
 };
 
 #endif
