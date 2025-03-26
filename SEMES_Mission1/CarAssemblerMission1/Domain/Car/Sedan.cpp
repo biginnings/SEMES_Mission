@@ -2,7 +2,7 @@
 
 class Sedan : public Car {
 public:
-	std::string getCarType() {
-		return "Sedan";
+	CarType getCarType() {
+		return CarType::SEDAN;
 	};
 };

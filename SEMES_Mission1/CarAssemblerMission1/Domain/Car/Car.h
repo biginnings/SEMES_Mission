@@ -23,7 +23,7 @@ public:
 	EngineType getEngineType();
 	BreakType getBreakType();
 	SteeringType getSteeringType();
-	virtual std::string getCarType() = 0;
+	virtual CarType getCarType() = 0;
 };
 
 #endif
