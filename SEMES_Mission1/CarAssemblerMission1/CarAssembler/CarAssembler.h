@@ -23,6 +23,9 @@ public:
     int selectTestOrRun();
     void getCurrentStatus();
     void waitForEnter();
+    void setParts(const int part[]);
+    int socketRun();
+    int socketTest();
 };
 
 #endif

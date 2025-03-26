@@ -157,3 +157,16 @@ void CarAssembler::waitForEnter() {
     std::cout << "엔터를 누르면 계속합니다...";
     std::cin.get();
 }
+
+void CarAssembler::setParts(const int part[]) {
+    carType = static_cast<CarType>(part[0]);
+    car->setParts(part);
+}
+
+int CarAssembler::socketRun() {
+    return car->socketRun();
+}
+
+int CarAssembler::socketTest() {
+    return car->socketTest();
+}

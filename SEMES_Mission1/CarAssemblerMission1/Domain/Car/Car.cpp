@@ -126,3 +126,43 @@ void Car::waitForEnter() {
 	std::cout << "엔터를 누르면 계속합니다...";
 	std::cin.get();
 }
+
+void Car::setParts(const int part[]) {
+	engineType = static_cast<EngineType>(part[1]);
+	breakType = static_cast<BreakType>(part[2]);
+	steeringType = static_cast<SteeringType>(part[3]);
+}
+
+
+int Car::socketRun() {
+	if (getCarType() == CarType::SEDAN && getBreakType() == BreakType::CONTINENTAL) {
+		return 1;
+	}
+	else if (getCarType() == CarType::SUV && getEngineType() == EngineType::TOYOTA) {
+		return 2;
+	}
+	else if (getCarType() == CarType::TRUCK && getEngineType() == EngineType::WIA) {
+		return 3;
+	}
+	else if (getCarType() == CarType::TRUCK && getBreakType() == BreakType::MANDO) {
+		return 4;
+	}
+	else if (getBreakType() == BreakType::BOSCH_B && getSteeringType() != SteeringType::BOSCH) {
+		return 5;
+	}
+	else if (getBreakType() != BreakType::BOSCH_B && getSteeringType() == SteeringType::BOSCH) {
+		return 6;
+	}
+	else {
+		return 7;
+	}
+}
+
+int Car::socketTest() {
+	if (getEngineType() == EngineType::BROKEN) {
+		return 1;
+	}
+	else {
+		return 2;
+	}
+}

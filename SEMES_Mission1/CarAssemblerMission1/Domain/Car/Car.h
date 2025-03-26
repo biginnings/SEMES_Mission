@@ -25,6 +25,9 @@ public:
 	SteeringType getSteeringType();
 	void waitForEnter();
 	virtual CarType getCarType() = 0;
+	void setParts(const int part[]);
+	int socketRun();
+	int socketTest();
 };
 
 #endif
