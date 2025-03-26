@@ -66,7 +66,7 @@ private:
 
     void waitForConnection() {
         listen(serverSocket, SOMAXCONN);
-        cout << "Waiting for a connection..." << endl;
+        //cout << "Waiting for a connection..." << endl;
 
         sockaddr_in clientAddr;
         int clientAddrSize = sizeof(clientAddr);
@@ -76,12 +76,14 @@ private:
             throw std::runtime_error("socket : connection error - Client connection failed!\n");
         }
 
-        //cout << "Client connected!" << endl;
+        cout << "Client connected!" << endl;
     }
 
     void handleReceivedData(const char* data) {
         std::istringstream stream(data);
         std::string token;
+
+        CarAssembler* ca = CarAssembler::getInstance();
 
         int idx = 0;
         while (std::getline(stream, token, ':')) {
@@ -89,7 +91,9 @@ private:
         }
 
         if (cmd[0] == 1) {
-            //test
+            /*ca->setParts(cmd);
+            int result = ca->socketTest();
+            std::cout << result << std::endl;*/
         }
         else if (cmd[0] == 2) {
             if (cmd[2] == 4) {

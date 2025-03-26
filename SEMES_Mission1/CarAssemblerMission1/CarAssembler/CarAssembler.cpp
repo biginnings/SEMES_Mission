@@ -73,7 +73,7 @@ Car* CarAssembler::getCar() {
 void CarAssembler::start() {
     StepType step = StepType::CarStep;
     int selectNumber = 0;
-    while (step!=StepType::End) {
+    while (step != StepType::End) {
         try {
             switch (step) {
             case StepType::CarStep: {
@@ -124,7 +124,7 @@ void CarAssembler::start() {
                 break;
             }
             }
-            
+
         }
         catch (const std::invalid_argument&) {
             std::cout << std::endl;
