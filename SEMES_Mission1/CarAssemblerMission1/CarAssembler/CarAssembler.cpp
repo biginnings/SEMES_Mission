@@ -2,6 +2,7 @@
 #include "../Domain/Car/exception/NotFoundCarException.h"
 #include "exception/InvalidSelectNumberException.h"
 #include "exception/NonNumericInputException.h"
+#include "../Domain/Enum/StepType.cpp"
 #define CLEAR_SCREEN "\033[H\033[2J"
 
 CarAssembler* CarAssembler::instance = nullptr;
@@ -22,7 +23,7 @@ void CarAssembler::destroyInstance() {
     carFactory = nullptr;
 }
 
-void CarAssembler::selectCarType() {
+int CarAssembler::selectCarType() {
     printf(CLEAR_SCREEN);
     printf("        ______________\n");
     printf("       /|            | \n");
@@ -51,13 +52,55 @@ Car* CarAssembler::getCar() {
 }
 
 void CarAssembler::start() {
-    while (true) {
+    StepType step = StepType::CarStep;
+    int selectNumber = 0;
+    while (step!=StepType::End) {
         try {
-            if(!car) selectCarType();
-            if(!car->getEngineType()) car->selectEngine();
-            //if(!car->getBreakType()) car->selectBreakSystem();
-            //if (!car->getSteeringType()) car->selectSteeringSystem();
-            break;
+            switch (step) {
+            case StepType::CarStep: {
+                selectNumber = selectCarType();
+                step = StepType::EngineStep;
+                break;
+            }
+            case StepType::EngineStep: {
+                selectNumber = car->selectEngine();
+                if (selectNumber == 0) {
+                    step = StepType::CarStep;
+                    break;
+                }
+                std::cout << "val=" << selectNumber << std::endl;
+                step = StepType::BreakStep;
+                break;
+            }
+            case StepType::BreakStep: {
+                selectNumber = car->selectBreakSystem();
+                if (selectNumber == 0) {
+                    step = StepType::EngineStep;
+                    break;
+                }
+                step = StepType::SteeringStep;
+                break;
+            }
+            case StepType::SteeringStep: {
+                selectNumber = car->selectSteeringSystem();
+                if (selectNumber == 0) {
+                    step = StepType::BreakStep;
+                    break;
+                }
+                step = StepType::RunTestStep;
+                break;
+            }
+            case StepType::RunTestStep: {
+                car->runProducedCar();
+                if (selectNumber == 0) {
+                    step = StepType::SteeringStep;
+                    break;
+                }
+                step = StepType::End;
+                break;
+            }
+            }
+            
         }
         catch (const std::invalid_argument&) {
             std::cerr << "[CarAssembler] 예외 발생: 올바른 수를 입력해주세요." << std::endl;
@@ -74,5 +117,5 @@ void CarAssembler::start() {
             std::cerr << "[CarAssembler] 예외 발생: " << ex.what() << std::endl;
         }
     }
-    
+    std::cout << "test" << std::endl;
 }

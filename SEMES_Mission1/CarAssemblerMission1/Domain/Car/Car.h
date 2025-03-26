@@ -15,9 +15,9 @@ protected:
 
 public:
 	virtual ~Car() = default;
-	void selectEngine();
-	void selectBreakSystem();
-	void selectSteeringSystem();
+	int selectEngine();
+	int selectBreakSystem();
+	int selectSteeringSystem();
 	void runProducedCar();
 	void testProducedCar();
 	EngineType getEngineType();

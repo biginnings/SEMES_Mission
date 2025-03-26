@@ -18,7 +18,7 @@ public:
     static CarAssembler* getInstance();
     void destroyInstance();
     void start();
-    void selectCarType();
+    int selectCarType();
     Car* getCar();
     void getCurrentStatus();
 };

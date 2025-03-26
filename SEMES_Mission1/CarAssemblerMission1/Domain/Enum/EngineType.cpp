@@ -4,7 +4,8 @@
 enum EngineType {
 	GM = 1,
 	TOYOTA,
-	WIA
+	WIA,
+	BROKEN
 };
 
 #endif

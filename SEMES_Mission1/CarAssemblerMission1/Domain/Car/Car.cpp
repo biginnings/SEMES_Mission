@@ -3,7 +3,7 @@
 #include "../../Parts/Break/Break.cpp"
 #define CLEAR_SCREEN "\033[H\033[2J"
 
-void Car::selectEngine() {
+int Car::selectEngine() {
 	//printf(CLEAR_SCREEN);
 	printf("어떤 엔진을 탑재할까요?\n");
 	printf("0. 뒤로가기\n");
@@ -13,16 +13,20 @@ void Car::selectEngine() {
 	printf("4. 고장난 엔진\n");
 	int selectNumber;
 	std::cin >> selectNumber;
+	if (selectNumber == 0) return 0;
     
 	EngineType selectEngineType = static_cast<EngineType>(selectNumber);
     engine = EngineFactory::createEngine(selectEngineType);
 	engineType = selectEngineType;
+	return selectNumber;
 }
 
-void Car::selectBreakSystem() {
+int Car::selectBreakSystem() {
+	return 0;
 }
 
-void Car::selectSteeringSystem() {
+int Car::selectSteeringSystem() {
+	return 0;
 }
 
 EngineType Car::getEngineType() {
