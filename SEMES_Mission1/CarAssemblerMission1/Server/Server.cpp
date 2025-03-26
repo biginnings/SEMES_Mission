@@ -37,7 +37,7 @@ private:
     std::string ipAddress;
     int port;
     char buffer[10];
-    int cmd[4];
+    int cmd[5];
 
     void initialize() {
         WSADATA wsaData;
@@ -76,7 +76,7 @@ private:
             throw std::runtime_error("socket : connection error - Client connection failed!\n");
         }
 
-        cout << "Client connected!" << endl;
+        //cout << "Client connected!" << endl;
     }
 
     void handleReceivedData(const char* data) {
@@ -86,6 +86,20 @@ private:
         int idx = 0;
         while (std::getline(stream, token, ':')) {
             cmd[idx++] = stoi(token);
+        }
+
+        if (cmd[0] == 1) {
+            //test
+        }
+        else if (cmd[0] == 2) {
+            if (cmd[2] == 4) {
+                char result[] = "Engine is not working.\nThe car doesn't move.\n";
+                send(clientSocket, result, sizeof(result), 0);
+            }
+            else {
+                char result[] = "The car is moving.\n";
+                send(clientSocket, result, sizeof(result), 0);
+            }
         }
     }
 
@@ -120,17 +134,3 @@ private:
         WSACleanup();
     }
 };
-
-int main() {
-    TCPServer server;
-    while (1) {
-        try {
-            server.start();
-        }
-        catch (std::runtime_error e) {
-            server.~TCPServer();
-            cout << e.what();
-        }
-    }
-    return 0;
-}
