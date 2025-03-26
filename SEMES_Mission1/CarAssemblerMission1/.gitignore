@@ -432,18 +432,18 @@ FodyWeavers.xsd
 *.sln.iml
 
 #etc
-Debug/
-Release/
-x64/
-.vs/
-**/Debug/
-**/Release/
-**/x64/
+#Debug/
+#Release/
+#x64/
+#.vs/
+#**/Debug/
+#**/Release/
+#**/x64/
 
-*.sln
-**/*.vcxproj
-**/*.vcxproj.*
-**/*.if**/*.obj
+#*.sln
+#**/*.vcxproj
+#**/*.vcxproj.*
+#**/*.if**/*.obj
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
