@@ -2,7 +2,7 @@
 #define STEERING_TYPE_H
 
 enum SteeringType {
-	BOSCH_S = 1,
+	BOSCH = 1,
 	MOBIS
 };
 

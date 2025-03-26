@@ -19,7 +19,12 @@
 #include "Parts/Engine/exception/InvalidEngineTypeException.cpp"
 
 #include "Parts/Break/Break.cpp"
+
 #include "Parts/Steering/Steering.cpp"
+#include "Parts/Steering/MobisSteering.cpp"
+#include "Parts/Steering/BoschSteering.cpp"
+#include "Parts/Steering/SteeringFactory.cpp"
+#include "Parts/Steering/SteeringException.cpp"
 
 // === Domain / Car ===
 #include "Domain/Car/Car.h"
@@ -30,5 +35,8 @@
 
 // === Application ===
 #include "CarAssembler/CarAssembler.h"
+
+// === Exceptoin ===
+#include "Global/Exception.cpp"
 
 #endif // INCLUDE_H
