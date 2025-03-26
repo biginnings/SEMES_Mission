@@ -19,6 +19,10 @@
 #include "Parts/Engine/exception/InvalidEngineTypeException.cpp"
 
 #include "Parts/Break/Break.cpp"
+#include "parts/Break/ContinentalBreak.cpp"
+#include "Parts/Break/MandoBreak.cpp"
+#include "Parts/Break/BoschBreak.cpp"
+#include "Parts/Break/exception/InvalidBreakTypeException.h"
 
 #include "Parts/Steering/Steering.cpp"
 #include "Parts/Steering/MobisSteering.cpp"

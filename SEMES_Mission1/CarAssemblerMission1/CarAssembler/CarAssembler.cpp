@@ -46,6 +46,25 @@ int CarAssembler::selectCarType() {
     carType = inputCarType;
 }
 
+int CarAssembler::selectTestOrRun() {
+    printf(CLEAR_SCREEN);
+    printf("멋진 차량이 완성되었습니다.\n");
+    printf("어떤 동작을 할까요?\n");
+    printf("0. 처음 화면으로 돌아가기\n");
+    printf("1. RUN\n");
+    printf("2. Test\n");
+    std::cout << "입력 : ";
+    std::string input;
+    std::getline(std::cin, input);
+    int selectNumber = std::stoi(input);
+    if (selectNumber < 0 || selectNumber > 2) throw InvalidSelectNumberException(selectNumber);
+    return selectNumber;
+}
+
+void CarAssembler::getCurrentStatus() {
+
+}
+
 Car* CarAssembler::getCar() {
     if (car == nullptr) throw NotFoundCarException();
     return car;
@@ -68,7 +87,6 @@ void CarAssembler::start() {
                     step = StepType::CarStep;
                     break;
                 }
-                std::cout << "val=" << selectNumber << std::endl;
                 step = StepType::BreakStep;
                 break;
             }
@@ -91,10 +109,16 @@ void CarAssembler::start() {
                 break;
             }
             case StepType::RunTestStep: {
-                car->runProducedCar();
+                selectNumber = selectTestOrRun();
                 if (selectNumber == 0) {
-                    step = StepType::SteeringStep;
+                    step = StepType::CarStep;
                     break;
+                }
+                else if (selectNumber == 1) {
+                    car->runProducedCar();
+                }
+                else if (selectNumber == 2) {
+                    car->testProducedCar();
                 }
                 step = StepType::End;
                 break;
@@ -103,19 +127,33 @@ void CarAssembler::start() {
             
         }
         catch (const std::invalid_argument&) {
+            std::cout << std::endl;
             std::cerr << "[CarAssembler] 예외 발생: 올바른 수를 입력해주세요." << std::endl;
+            waitForEnter();
         }
         catch (const InvalidSelectNumberException& ex) {
+            std::cout << std::endl;
             std::cerr << "[CarAssembler] 예외 발생: " << ex.what()
                 << " (입력값: " << ex.getInvalidValue() << ")" << std::endl;
+            waitForEnter();
         }
         catch (const InvalidCarTypeException& ex) {
+            std::cout << std::endl;
             std::cerr << "[CarAssembler] 예외 발생: " << ex.what()
                 << " (입력값: " << ex.getInvalidValue() << ")" << std::endl;
+            waitForEnter();
         }
         catch (const NotFoundCarException& ex) {
+            std::cout << std::endl;
             std::cerr << "[CarAssembler] 예외 발생: " << ex.what() << std::endl;
+            waitForEnter();
         }
     }
-    std::cout << "test" << std::endl;
+    std::cout << std::endl;
+    std::cout << "[Program Exit] Bye Bye~" << std::endl;
+}
+
+void CarAssembler::waitForEnter() {
+    std::cout << "엔터를 누르면 계속합니다...";
+    std::cin.get();
 }

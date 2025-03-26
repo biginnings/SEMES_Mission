@@ -20,7 +20,9 @@ public:
     void start();
     int selectCarType();
     Car* getCar();
+    int selectTestOrRun();
     void getCurrentStatus();
+    void waitForEnter();
 };
 
 #endif

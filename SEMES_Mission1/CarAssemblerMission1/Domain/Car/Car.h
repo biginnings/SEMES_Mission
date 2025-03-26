@@ -23,6 +23,7 @@ public:
 	EngineType getEngineType();
 	BreakType getBreakType();
 	SteeringType getSteeringType();
+	void waitForEnter();
 	virtual CarType getCarType() = 0;
 };
 
