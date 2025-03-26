@@ -43,4 +43,7 @@
 // === Exceptoin ===
 #include "Global/Exception.cpp"
 
+// === Server ===
+#include "Server/Server.cpp"
+
 #endif // INCLUDE_H
