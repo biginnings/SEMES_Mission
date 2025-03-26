@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SEMES_Mission1",
+    "\\SEMES_Mission1\\CarAssemblerMission1",
+    "\\SEMES_Mission1\\CarAssemblerMission1\\CarAssembler",
+    "\\SEMES_Mission1\\CarAssemblerMission1\\Domain",
+    "\\SEMES_Mission1\\CarAssemblerMission1\\Domain\\Car",
+    "\\SEMES_Mission1\\CarAssemblerMission1\\Global",
+    "\\SEMES_Mission1\\CarAssemblerMission1\\Parts",
+    "\\SEMES_Mission1\\CarAssemblerMission1\\Parts\\Steering"
+  ],
+  "SelectedNode": "\\SEMES_Mission1\\CarAssemblerMission1\\main.cpp",
+  "PreviewInSolutionExplorer": false
+}

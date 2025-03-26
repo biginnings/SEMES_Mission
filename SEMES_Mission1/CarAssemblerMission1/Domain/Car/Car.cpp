@@ -26,6 +26,28 @@ int Car::selectBreakSystem() {
 }
 
 int Car::selectSteeringSystem() {
+	printf(CLEAR_SCREEN);
+	printf("어떤 조향장치를 선택할까요?\n");
+	printf("0. 뒤로가기\n");
+	printf("1. BOSCH\n");
+	printf("2. MOBIS\n");
+
+	int selectNumber;
+	std::cin >> selectNumber;
+
+	/*std::string cmd;
+	std::cin >> cmd;
+
+	SteeringException e;
+	try {
+
+	}
+	e.length(cmd);
+	int selectNumber = static_cast<int>(cmd);*/
+
+	SteeringType selectSteeringType = static_cast<SteeringType>(selectNumber);
+	steering = SteeringFactory::createSteering(selectSteeringType);
+	steeringType = selectSteeringType;
 	return 0;
 }
 
