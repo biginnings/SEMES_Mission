@@ -92,14 +92,9 @@ private:
             ca->setParts(cmd);
             int result = ca->socketTest();
             std::cout << result << std::endl;
-            if (result == 1) {
-                char message[] = "1";
-                send(clientSocket, message, sizeof(message), 0);
-            }
-            else if (result == 2) {
-                char message[] = "2";
-                send(clientSocket, message, sizeof(message), 0);
-            }
+            char message[4];
+            sprintf(message, "%d", result);
+            send(clientSocket, message, sizeof(message), 0);
         }
         else if (cmd[0] == 2) {
             if (cmd[2] == 4) {
