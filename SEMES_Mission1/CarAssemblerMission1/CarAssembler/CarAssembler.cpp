@@ -159,8 +159,10 @@ void CarAssembler::waitForEnter() {
 }
 
 void CarAssembler::setParts(const int part[]) {
-    //car 가 없음 선언이 안됨
     carType = static_cast<CarType>(part[0]);
+    if (car == nullptr) {
+        car = carFactory->createCar(carType);
+    }
     car->setParts(part);
 }
 
