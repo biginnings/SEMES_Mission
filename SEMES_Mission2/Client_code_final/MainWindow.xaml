@@ -1,0 +1,56 @@
+﻿<Window x:Class="CarAssemblerGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarAssemblerGUI"
+        mc:Ignorable="d"
+        Title="CarAssembler" Height="450" Width="800"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid HorizontalAlignment="Center" Height="355" VerticalAlignment="Center" Width="687">
+            <Grid HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="430" Margin="0,40,0,0">
+                <Grid HorizontalAlignment="Center" Height="173" VerticalAlignment="Top">
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="430">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="자동차 타입을 선택하세요 : " HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="180"/>
+                        <ComboBox x:Name="selectCartype" FontSize="10" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="221,0,0,0" />
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" Margin="0,47,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="엔진 타입을 선택하세요 : " HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="180"/>
+                        <ComboBox x:Name="selectEnginetype" FontSize="10" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="221,0,0,0" />
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" Margin="0,95,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="제동장치 타입을 선택하세요 : " HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="180"/>
+                        <ComboBox x:Name="selectBreaktype" FontSize="10" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="221,0,0,0" />
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" Margin="0,141,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="조향장치 타입을 선택하세요 : " HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="180"/>
+                        <ComboBox x:Name="selectSteeringtype" FontSize="10" Width="200" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="221,0,0,0" />
+                    </Grid>
+                </Grid>
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Width="410" Margin="0,204,0,0">
+                    <Button Content="Reset" FontSize="25" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="100" Click="Reset_Button"/>
+                    <Button Content="Test" FontSize="25" HorizontalAlignment="Left" Margin="150,0,0,0" Width="100" Click="Test_Button"/>
+                    <Button Content="Run" FontSize="25" HorizontalAlignment="Left" Height="51" VerticalAlignment="Center" Width="100" Click="Run_Button" Margin="300,0,0,0"/>
+                </Grid>
+            </Grid>
+            <Label Content="차량을 제조하자!" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="280"/>
+        </Grid>
+    </Grid>
+</Window>
