@@ -36,7 +36,7 @@ private:
     SOCKET clientSocket;
     std::string ipAddress;
     int port;
-    char buffer[10];
+    char buffer[1024];
     int cmd[5];
 
     void initialize() {
@@ -82,9 +82,7 @@ private:
     void handleReceivedData(const char* data) {
         std::istringstream stream(data);
         std::string token;
-
         CarAssembler* ca = CarAssembler::getInstance();
-
         int idx = 0;
         while (std::getline(stream, token, ':')) {
             cmd[idx++] = stoi(token);
@@ -94,6 +92,14 @@ private:
             ca->setParts(cmd);
             int result = ca->socketTest();
             std::cout << result << std::endl;
+            if (result == 1) {
+                char message[] = "1";
+                send(clientSocket, message, sizeof(message), 0);
+            }
+            else if (result == 2) {
+                char message[] = "2";
+                send(clientSocket, message, sizeof(message), 0);
+            }
         }
         else if (cmd[0] == 2) {
             if (cmd[2] == 4) {
