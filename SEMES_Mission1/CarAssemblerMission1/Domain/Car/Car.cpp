@@ -135,6 +135,15 @@ void Car::setParts(const int part[]) {
 
 
 int Car::socketRun() {
+	if (getEngineType() == EngineType::BROKEN) {
+		return 1;
+	}
+	else {
+		return 2;
+	}
+}
+
+int Car::socketTest() {
 	if (getCarType() == CarType::SEDAN && getBreakType() == BreakType::CONTINENTAL) {
 		return 1;
 	}
@@ -155,14 +164,5 @@ int Car::socketRun() {
 	}
 	else {
 		return 7;
-	}
-}
-
-int Car::socketTest() {
-	if (getEngineType() == EngineType::BROKEN) {
-		return 1;
-	}
-	else {
-		return 2;
 	}
 }
